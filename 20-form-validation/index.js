@@ -16,7 +16,16 @@ butt.onclick=function(){
   zhouchang.value=z;
   mianji.value=m;
 };
-
+width.blur=function(){
+  if(!validata("width")){
+    width.select()
+ }
+}
+height.blur=function(){
+  if(!validata("height")){
+    height.select()
+ }
+}
 function validate(field){
   var data=document.getElementById(field)
   var name=field+'msg'
@@ -34,12 +43,12 @@ function validate(field){
       data.select();
       return false;
   }
-  // if(!new RegExp('/^-?(0![1-9]\d*)(\.\d*)?([eE][+-]?\d+)?$/') .test(data.value)){
-  //   console.log(field+'3')
-  //     msg.innerHTML='必须是数值';
-  //     data.select();
-  //     return false;
-  // }
+  if(!new RegExp('/^-?(0![1-9]\d*)(\.\d*)?([eE][+-]?\d+)?$/') .test(data.value)){
+    console.log(field+'3')
+      msg.innerHTML='必须是数值';
+      data.select();
+      return false;
+  }
   msg.innerHTML=""
   return true
 }
