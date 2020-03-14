@@ -1,0 +1,25 @@
+div{
+  width:300px;
+  margin:0px auto;
+  font-size:1.1em;
+}
+button{
+  width:50px;
+  margin-left: 50px;
+}
+input,label{
+  margin:10px 0;
+  font-size: 1em;
+}
+#widthmsg{
+  height:30px;
+  font-size: 12px;
+  color: red;
+  margin-top: 1px;
+}
+#heightmsg{
+  height:30px;
+  font-size: 12px;
+  margin-top: 1px;
+  color: red;
+}
