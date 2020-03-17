@@ -26,6 +26,48 @@ height.blur=function(){
     height.select()
  }
 }
+
+width.onkeypress=function(e){
+  console.log(e.key);
+  console.log(/[abcdf-zABCDF-Z`~!@#$%^&*()\-=_+[\]{}|;:'",<>/?\\]/.test(e.key))
+  if(/[abcdf-zABCDF-Z`~!@#$%^&*()\-=_+[\]{}|;:'",<>/?\\]/.test(e.key)){
+    
+       e.preventDefault();
+      return
+     }
+  var pos=e.target.selectionStart;
+  var con=e.target.value;
+  if(e.key==='e'){
+      if(pos===0 ||con.indexOf('e')!==-1 || con.indexOf('E')!==-1){
+          e.preventDefault();
+        return
+      }
+      if(pos===1 || con.substring(0,1)==='-'){
+          e.preventDefault();
+        return
+      }
+  }
+}
+
+height.onkeypress=function(e){
+  if(/[abcdf-zABCDF-Z`~!@#$%^&*()\-=_+[\]{}|;:'",<>/?\\]/.test(e.key)){
+       e.preventDefault();
+      return
+     }
+  var pos=e.target.selectionStart;
+  var con=e.target.value;
+  if(e.key==='e'){
+      if(pos===0 ||con.indexOf('e')!==-1 || con.indexOf('E')!==-1){
+          e.preventDefault();
+        return
+      }
+      if(pos===1 || con.substring(0,1)==='-'){
+          e.preventDefault();
+        return
+      }
+  }
+}
+
 function validate(field){
   var data=document.getElementById(field)
   var name=field+'msg'
