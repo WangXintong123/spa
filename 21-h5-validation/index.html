@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算器</title>
+  <link href="./index.css" rel="stylesheet" type="text/css"/>
+ 
+</head>
+<body>
+  <form>
+    <lable>长度：</lable><input required min='0' step='0.01' autofocus type="number" id="width">
+    
+    <div id="widthmsg"></div>
+
+    <lable>宽度：</lable><input min='0' step='0.01' type="number" id="height">
+    
+    <div id="heightmsg"></div>
+    <br>
+    <button id="butt" >计算</button>
+    <br>
+    <lable>周长：</lable><input type="text" id="zhouchang" disabled>
+    <br>
+    <lable>面积：</lable><input type="text" id="mianji" disabled>
+  </form>
+</body>
+<script type="text/javascript" src="./index.js"></script>
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+</html>
