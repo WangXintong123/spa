@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./layout.css" type="text/css">
+  <link rel="icon" href="https://i.wangding.in/favicon.ico" sizes="48x48" type="image/png">
+</head>
+<body>
+  <div >
+    <input id="add" type="button" value="添加密码框" >
+    <input id="get" type="button" value="获得密码" disabled>
+    <div id="container"></div>
+  </div>
+  <!-- 密码： <input id="pwd" type="password" autofocus>
+  <div id="eye"></div>
+  <input id='out' class="pwd-text"> -->
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+<script type="text/javascript" src="./main.js"></script>
+<script>
+  $(function(){
+    $("#get").click(function(){
+      $passWord.getPwd();
+    })
+  })
+</script>
+</body>
+</html>
