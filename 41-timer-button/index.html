@@ -8,6 +8,7 @@
 </head>
 <body>
   <input id="add" type="button" value="添加定时器按钮">
+  <input id="what" type="radio" name="unuse" value="禁用">按钮初始是否禁用
   <hr>
   <div id="main">
 
@@ -18,15 +19,27 @@
 <script>
   $(function(){
     var $btnadd=$('#add')
+    var $radio=$('#what')
     $btnadd.click(function(){
-      $timerButton.show({
-        num:10,
-        title:"发送验证码",
-        onClick:function(){
-          console.log("点击了定时器按钮")
-        }
+      if($radio.is(':checked')){
+          $timerButton.show({
+          num:10,
+          title:"发送验证码",
+          onClick:function(){
+            console.log("点击了定时器按钮")
+          }
+        })
+      }else{
+        $timerButton.hide({
+          num:10,
+          title:"发送验证码",
+          onClick:function(){
+            console.log("点击了定时器按钮")
+          }
       })
+      
       // console.log(55555)
+      }
     })
   })
 </script>
