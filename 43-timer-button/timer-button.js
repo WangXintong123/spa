@@ -1,80 +1,55 @@
+/*eslint quotes: ["error", "double"]*/
 define(['jquery'],function($){
-  function TimerButton(){
-    var $btn=$('<input type="button" value="同意（6s）" disabled/>'),
-      cfg = {
-          container:'body',
-          num:6,
-          title:'同意',
-          onClick:null
-      },
-      num,
-      timer;
-      $btn.css({
-          height:'50px',
-          width:'120px'
-      })
-      var $btnhide=$('<input type="button" value="点击" />'),
-      cfg = {
-          container:'body',
-          num:6,
-          title:'同意',
-        //   onClick:null
-      },
-      num,
-      timerr;
-      $btnhide.css({
-          height:'50px',
-          width:'120px'
-      })
-     this.show=function(conf){
-        // 1.DOM draw
-        $(cfg.container).append($btn);
-        $.extend(cfg,conf);
-        num = cfg.num;
-        $btn.val(cfg.title+'('+cfg.num+'s)')
-        timer=setInterval(function(){
-            num--;
-            if(num===0){
-                clearInterval(timer);
-                $btn.val(cfg.title);
-                $btn.removeAttr("disabled");
-            }else{
-                $btn.val(cfg.title+'('+num+'s)')
-            }
-        },1000)
-        // $(conf).append($btn);
-        // 2.event bind
-        $btn.click(function(){
-          alert('就知道你会同意的')
-       })
+    function TimerButton(){
+        var $btn=$('<input class="timer-button" type="button" value="同意(6s)" disabled />');
+        var timer;
+        var num;
+        var cfg={
+            container:"body",
+            num:6,
+            title:"同意",
+            onClick:null
+        }
+        this.show=function(conf){
+            $(cfg.container).append($btn);
+            $.extend(cfg,conf);
+            num = cfg.num;
+            $btn.val(cfg.title+"("+num+"s)")
+            timer =setInterval(function() {
+                num--;
+                if(num===0){
+                    clearInterval(timer);
+                    $btn.val(cfg.title);
+                    $btn.removeAttr("disabled");
+                }
+                else{
+                    $btn.val( cfg.title+"("+num+"s)");
+                }
+            }, 1000);
+            //2.event bind
+            $btn.click(cfg.onClick);
+        }
     }
-  
-    this.hide=function (conf){
-      $(cfg.container).append($btnhide);
-      $.extend(cfg,conf);
-      num = cfg.num;
-      $btnhide.click(function(){
-        $btnhide.val(cfg.title+'('+cfg.num+'s)');
-        $btnhide.attr("disabled","disabled")
-        timerr=setInterval(function(){
-          num--;
-          if(num===0){
-              clearInterval(timerr);
-              $btnhide.val(cfg.title);
-              $btnhide.removeAttr("disabled");
-              num=10;
-              $btnhide.click(function(){
-                alert('就知道你会同意的')
-             })
-          }else{
-              $btnhide.val(cfg.title+'('+num+'s)')
-          }
-      },1000)
-      }) 
-    }
-  }
-  return TimerButton
-});
+    return TimerButton;
+})
 
 
-
+//不用 page load event
+/**
+ * 封装成对象有几种方案
+ * 1.简单对象字面量，不完全是面向对象，不能包括私有方法
+ * var timerButton={
+ *  show:function()
+ * }
+ * 2.工厂函数，一个函数返回值是一个简单对象
+ * var timerButton=(function(){
+ *  return {
+ *      show:function(){}
+ *  }
+ * }())
+ * 3.构造函数
+ * function TimerButton(){
+ *  
+ * }
+ * var tb= new TimerButton();
+ */
